@@ -1,13 +1,13 @@
 import { component$ } from '@builder.io/qwik'
 import { routeLoader$ } from '@builder.io/qwik-city';
 
-export const getZennArticle = routeLoader$(async () => {
+export const useZennArticle = routeLoader$(async () => {
     const response = await fetch("https://zenn.dev/api/articles?username=thirdlf&order=latest");
     return response.json();
 })
 
 export default component$(() => {
-    const zennArticles = getZennArticle();
+    const zennArticles = useZennArticle();
     return (
         <div>
             <h1>Hello, World!</h1>
